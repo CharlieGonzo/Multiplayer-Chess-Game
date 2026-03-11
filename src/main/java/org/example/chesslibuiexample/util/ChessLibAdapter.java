@@ -5,6 +5,7 @@ import com.github.bhlangonijr.chesslib.Piece;
 import com.github.bhlangonijr.chesslib.Square;
 import com.github.bhlangonijr.chesslib.move.Move;
 import javafx.scene.image.Image;
+import org.example.chesslibuiexample.model.WinCondition;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +27,19 @@ public class ChessLibAdapter {
         this.board = new Board();
     }
 
-    public boolean checkWin(){
-        return board.isDraw() || board.isMated() || board.isStaleMate();
+    public WinCondition checkWin(){
+       if(board.isDraw()){
+           if(board.isStaleMate()){
+               return WinCondition.STALEMATE;
+           }
+           return WinCondition.DRAW;
+       }
+       if(board.isMated()){
+           if(board.getSideToMove().value().equals("BLACK"))
+            return WinCondition.WHITE_WIN;
+           return WinCondition.BLACK_WIN;
+       }
+       return WinCondition.NONE;
     }
 
     public void seeMove(Square square) {
