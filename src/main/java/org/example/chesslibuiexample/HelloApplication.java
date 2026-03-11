@@ -14,7 +14,7 @@ public class HelloApplication extends Application {
 //        PieceImageContainer container = new PieceImageContainer();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("board.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-        stage.setTitle("Hello!");
+        stage.setTitle("Chess!");
         stage.setScene(scene);
         stage.show();
     }

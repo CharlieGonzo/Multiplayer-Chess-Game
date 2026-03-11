@@ -42,6 +42,10 @@ public class ChessLibAdapter {
        return WinCondition.NONE;
     }
 
+    public String getCurrentSide(){
+        return board.getSideToMove().value();
+    }
+
     public void seeMove(Square square) {
         System.out.println(square);
 //        System.out.println(board.legalMoves());

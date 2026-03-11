@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import org.example.chesslibuiexample.UI.BoardBox;
 import org.example.chesslibuiexample.model.WinCondition;
 import org.example.chesslibuiexample.util.ChessLibAdapter;
@@ -27,6 +28,13 @@ public class BoardController implements Initializable {
     @FXML
     GridPane board;
 
+    @FXML
+    private HBox bottomMenu;
+
+    @FXML
+    private Label sideturn;
+
+
     ChessLibAdapter chessGame;
 
     PieceImageContainer container;
@@ -38,6 +46,7 @@ public class BoardController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         chessGame = new ChessLibAdapter();
         container = new PieceImageContainer();
+        sideturn.setText(chessGame.getCurrentSide()+"'s turn");
         createStartingBoard();
     }
 
@@ -99,6 +108,7 @@ public class BoardController implements Initializable {
     }
 
     private void processConfirmedMove(BoardBox clickedBox,BoardBox curr){
+        sideturn.setText(chessGame.getCurrentSide()+"'s turn");
         proccesBoxes(clickedBox,curr);
         chessGame.clearActions();// function
         checkForWin();
@@ -112,7 +122,7 @@ public class BoardController implements Initializable {
         if(count%2==0) {
             node.setStyle("-fx-background-color: #c0fcc6;");
         }else {
-            node.setStyle("-fx-background-color: #c0fcc6;");
+            node.setStyle("-fx-background-color: #42f554;");
         }
     }
 
@@ -127,7 +137,7 @@ public class BoardController implements Initializable {
                     chessGame.setSelectionState(true);
                    styleSelectedSquare(count++,node);
                 }else{
-                   styleNonSelectedSquare(count,node);
+                   styleNonSelectedSquare(count++,node);
                 }
             }
         }
@@ -149,7 +159,7 @@ public class BoardController implements Initializable {
     private int generateBox(String square,int count,int col,int row){
         BoardBox newBox = new BoardBox(Square.valueOf(square));
         newBox.setPieceImage(container.getImages().get(newBox.getSquare().toString().toLowerCase()));
-        styleNonSelectedSquare(count,newBox);
+        styleNonSelectedSquare(count++,newBox);
         if(newBox.getPieceImage()!=null) { // means that it is one of the starting posisitons that need a piece
             newBox.getChildren().add(new ImageView(newBox.getPieceImage()));
         }
