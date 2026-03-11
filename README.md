@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="RDME-iMG/chess.png" alt="Logo" width="80" height="80">
+    <img src="RDME-IMG/chess.png" alt="Logo" width="80" height="80">
   </a>
 
   <h2 align="center">Online Chess Game JavaFX</h2>
@@ -19,7 +19,7 @@
 </div>
 
 <div align="center">
-  <img src="RDME-iMG/chess.png" alt="Logo" width="800" height="600">
+  <img src="RDME-IMG/chess.png" alt="Logo" width="800" height="600">
 </div>
 
 ## Rules of the game
