@@ -79,14 +79,24 @@ public class BoardController implements Initializable {
         chessGame.clearActions();
     }
 
-    private Alert getWinAlert(){
-        return new Alert(Alert.AlertType.INFORMATION,"Game is over");
+    private Alert getWinAlert(String message){
+        return new Alert(Alert.AlertType.INFORMATION,message);
     }
 
     private void checkForWin(){
-        if(chessGame.checkWin() != WinCondition.NONE){ // check for wins
-            getWinAlert().showAndWait();
-            System.exit(0);
+        switch (chessGame.checkWin()){
+            case BLACK_WIN ->  {
+                getWinAlert("Game Over. Black wins!!!").showAndWait();
+                System.exit(0);
+            }
+            case WHITE_WIN -> {
+                getWinAlert("Game over. White wins!!!").showAndWait();
+                System.exit(0);
+            }
+            case DRAW -> {
+                getWinAlert("Draw").showAndWait();
+                System.exit(0);
+            }
         }
     }
 
