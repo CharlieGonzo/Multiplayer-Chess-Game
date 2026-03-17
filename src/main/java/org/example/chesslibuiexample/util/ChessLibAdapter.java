@@ -82,6 +82,15 @@ public class ChessLibAdapter {
         possibleMoves = new ArrayList<>();
     }
 
+    public void doMoveIfLegal(Square from, Square to) {
+        Move move = new Move(from, to);
+        boolean legal = board.legalMoves().stream()
+                .anyMatch(m -> m.getFrom().equals(from) && m.getTo().equals(to));
+        if (legal) {
+            board.doMove(move);
+        }
+    }
+
     public void revertMove() {
 
 

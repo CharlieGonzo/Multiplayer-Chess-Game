@@ -16,4 +16,11 @@ public class StartController {
         Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
     }
+
+    public void onMultiplayer(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("UsernameScreen.fxml"));
+        Scene scene = new Scene(loader.load(), 400, 300);
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+    }
 }

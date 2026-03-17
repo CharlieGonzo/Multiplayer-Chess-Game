@@ -11,7 +11,7 @@
       <Label text="Chess" style="-fx-font-size: 36px; -fx-font-weight: bold;" />
       <Button fx:id="localPlayButton" text="Local Play" prefWidth="180.0" prefHeight="45.0"
               style="-fx-font-size: 16px;" onAction="#onLocalPlay" />
-      <Button fx:id="multiplayerButton" text="Multiplayer (Coming Soon)" prefWidth="180.0" prefHeight="45.0"
-              style="-fx-font-size: 16px; -fx-opacity: 0.5;" disable="true" />
+      <Button fx:id="multiplayerButton" text="Multiplayer" prefWidth="180.0" prefHeight="45.0"
+              style="-fx-font-size: 16px;" onAction="#onMultiplayer" />
    </children>
 </VBox>
